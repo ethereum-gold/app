@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html translate="no">
+   <head>
+      <!-- The legacy-web3 script must run BEFORE your other scripts. -->
+      <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="shortcut icon" type="image/png" href="./assets/images/favicon.ico">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" content="#ff007a">
+      <title>MetaMoney Swap</title>
+      <link href="./assets/css/swap.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body data-new-gr-c-s-check-loaded="14.1020.0" data-gr-ext-installed="">
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+         <div class="App__AppWrapper-sc-1dv6j2d-0 hCTbrw">
+            <div class="App__HeaderWrapper-sc-1dv6j2d-2 jayjTO">
+               <div class="Header__HeaderFrame-sc-pradxg-0 cldHCX">
+                  <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 Header__HeaderRow-sc-pradxg-4 lmTMKd itvFNV ieBXyZ fuDQfS">
+                     <a href="./" class="Header__Title-sc-pradxg-11 eMRJvR">
+                        <div class="Header__UniIcon-sc-pradxg-12 kaGTlW"><img width="40px" src="./assets/images/gold.png" alt="logo"></div>
+                     </a>
+                  </div>
+                  <div class="sc-bdnxRM Row-sc-nrd8cx-0 Header__HeaderLinks-sc-pradxg-5 lmTMKd itvFNV ejdqCB"><a class="Header__StyledNavLink-sc-pradxg-13 fHQhWO ACTIVE" id="swap-nav-link" href="./">Ethereum</a><a class="Header__StyledNavLink-sc-pradxg-13 fHQhWO" id="pool-nav-link" href="./btc" aria-current="page">WBTC</a><a class="Header__StyledNavLink-sc-pradxg-13 fHQhWO" id="stake-nav-link" href="./bnb">Binance</a><a target="_blank" rel="noopener noreferrer" href="../info" id="stake-nav-link" class="components__StyledLink-sc-1cchcrx-5 hrCvwn Header__StyledExternalLink-sc-pradxg-14 fAYyss">Charts<sup>↗</sup></a></div>
+                  <div class="Header__HeaderControls-sc-pradxg-1 ciSfht">
+                     <div class="Header__HeaderElement-sc-pradxg-2 hgukjK">
+                        <div class="Header__AccountElement-sc-pradxg-6 fZxovs" style="pointer-events: auto;">
+                           <div class="Header__BalanceText-sc-pradxg-10 dAVeKt css-8visvh" style="flex-shrink: 0;"><span class="address-balance">0 ETH</span></div>
+                           <button id="web3-status-connected" class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonSecondary-sc-fwrjc2-4 Web3Status__Web3StatusGeneric-sc-m6ivbz-1 Web3Status__Web3StatusConnected-sc-m6ivbz-4 fCPJRa ahrDS jyCPBo jbLfTc">
+                              <p class="Web3Status__Text-sc-m6ivbz-5 dyHlGp"><span id="eth-address">Connect Wallet</span></p>
+                              <div class="Identicon__StyledIdenticonContainer-sc-z4caw7-0 cQXNnV">
+                                 <div style="border-radius: 50px; overflow: hidden; padding: 0px; margin: 0px; width: 16px; height: 16px; display: inline-block; background: rgb(1, 128, 142);">
+                                    <img src="./assets/images/wallet-side.svg"/>
+                                 </div>
+                              </div>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="Header__HeaderElementWrap-sc-pradxg-3 bNFNdt">
+                        <button class="Header__StyledMenuButton-sc-pradxg-15 fJzFjL" onClick="window.open('https://t.me/gandhijiio');">
+                        <img src="./assets/images/telegram.svg"/>
+                        </button>
+                        <div class="Menu__StyledMenu-sc-12ipqmu-3 fqyghT">
+                           <button class="Menu__StyledMenuButton-sc-12ipqmu-1 hHsJTZ" onClick="window.open('https://discord.gg/cPAMux4evr');">
+                           <img src="./assets/images/discord.svg"/>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="App__BodyWrapper-sc-1dv6j2d-1 gomsjo">
+               <div class="Column__AutoColumn-sc-1kykgp9-2 Popups__FixedPopupColumn-sc-fo3pji-2 wjIfL fTqvd"></div>
+               <div height="0" class="Popups__MobilePopupWrapper-sc-fo3pji-0 icVEst">
+                  <div class="Popups__MobilePopupInner-sc-fo3pji-1 eeMfBZ"></div>
+               </div>
+               <a target="_blank" rel="noopener noreferrer" href="https://etherscan.io/address/0x167cb3f2446f829eb327344b66e271d1a7efec9a" class="components__StyledLink-sc-1cchcrx-5 hrCvwn">
+                  <div class="Polling__StyledPolling-sc-123dig8-0 sgvMf">
+                     <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab Polling__StyledPollingNumber-sc-123dig8-1 jmKtGb css-x9zcw6">Ethereum Gold</div>
+                     <div class="Polling__StyledPollingDot-sc-123dig8-2 bXIavY"></div>
+                  </div>
+               </a>
+               <div class="AppBody__BodyWrapper-sc-ebxalf-0 ljBIRR" id="buyDiv">
+                  <div class="SwapHeader__StyledSwapHeader-sc-jhay2b-0 kdgICL">
+                     <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                           <div class="theme__TextWrapper-sc-18nh1jk-0 jVfwBw css-10yinq6" style="margin-right: 8px;">Ethereum Gold</div>
+                        </div>
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                           <div class="Settings__StyledMenu-sc-1ndknrv-4 hsEXYP">
+                              <button id="open-settings-dialog-button" class="Settings__StyledMenuButton-sc-1ndknrv-2 jabAGh" onClick="window.open('./docs/eth');">
+                              <img style="width: 24px;" src="./assets/images/docs.svg"/>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="swap-page" class="styleds__Wrapper-sc-11ce2lf-0 dhAVsx">
+                     <div class="Column__AutoColumn-sc-1kykgp9-2 kFRlyy">
+                        <div>
+                           <div id="swap-currency-input" label="[object Object]" class="CurrencyInputPanel__InputPanel-sc-33m4yg-0 bKMknS">
+                              <div class="CurrencyInputPanel__Container-sc-33m4yg-2 llFfOK">
+                                 <div class="CurrencyInputPanel__InputRow-sc-33m4yg-4 jnWuGN">
+                                    <button class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 CurrencyInputPanel__CurrencySelect-sc-33m4yg-3 fCPJRa fbOcdz jTGBXX open-currency-select-button">
+                                       <span class="CurrencyInputPanel__Aligner-sc-33m4yg-7 ggQvrK">
+                                          <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ"><img src="./assets/images/eth.png" class="CurrencyLogo__StyledEthereumLogo-sc-1fvnadz-0 jWnoJP" style="margin-right: 0.5rem;"><span class="CurrencyInputPanel__StyledTokenName-sc-33m4yg-9 cjQGda token-symbol-container">ETH</span></div>
+                                       </span>
+                                    </button>
+                                    <input class="NumericalInput__StyledInput-sc-1x3stf0-0 cOHNRh token-amount-input" type="number" id="purchase-amount" min="0" step="0.01" inputmode="decimal" autocomplete="off" autocorrect="off" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="Amount of ETH" minlength="1" maxlength="79" spellcheck="false" oninput="buyCal()"> 
+                                 </div>
+                                 <div class="CurrencyInputPanel__LabelRow-sc-33m4yg-5 CurrencyInputPanel__FiatRow-sc-33m4yg-6 hGsXUM kUDmwU">
+                                    <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                                       <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ" style="height: 17px;">
+                                          <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae" style="display: inline; cursor: pointer;">Balance: <span class="address-balance">0 ETH</span></div>
+                                          <!--<button class="CurrencyInputPanel__StyledBalanceMax-sc-33m4yg-10 bUSiQh">(Max)</button>-->
+                                       </div>
+                                       <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae">~<span id="toestimatebox-usd">0.00 USD</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="styleds__ArrowWrapper-sc-11ce2lf-1 eFFqev">
+                              <img onclick="buysellswitch()"  src="./assets/images/switch.svg"/>
+                           </div>
+                           <div id="swap-currency-output" label="[object Object]" class="CurrencyInputPanel__InputPanel-sc-33m4yg-0 bKMknS">
+                              <div class="CurrencyInputPanel__Container-sc-33m4yg-2 llFfOK">
+                                 <div class="CurrencyInputPanel__InputRow-sc-33m4yg-4 jnWuGN">
+                                    <button class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 CurrencyInputPanel__CurrencySelect-sc-33m4yg-3 fCPJRa fbOcdz jTGBXX open-currency-select-button">
+                                       <span class="CurrencyInputPanel__Aligner-sc-33m4yg-7 ggQvrK">
+                                          <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ"><img class="CurrencyLogo__StyledLogo-sc-1fvnadz-1 hDrCZR" alt="DAI logo" src="./assets/images/goldcoin.png" style="margin-right: 0.5rem;"><span class="CurrencyInputPanel__StyledTokenName-sc-33m4yg-9 cjQGda token-symbol-container">IND</span></div>
+                                       </span>
+                                    </button>
+                                    <input disabled="disabled" id="toestimatebox" class="NumericalInput__StyledInput-sc-1x3stf0-0 cOHNRh token-amount-input" inputmode="decimal" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" spellcheck="false" id="deposit-hint"> 
+                                 </div>
+                                 <div class="CurrencyInputPanel__LabelRow-sc-33m4yg-5 CurrencyInputPanel__FiatRow-sc-33m4yg-6 hGsXUM kUDmwU">
+                                    <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                                       <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ" style="height: 17px;">
+                                          <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae" style="display: inline; cursor: pointer;">Balance: <span class="poh-balance value">0</span> IND</div>
+                                       </div>
+                                       <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae">~<span id="toestimatebox-usd-1">0.00 USD</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 lmTMKd itvFNV" style="justify-content: space-between;">
+                           <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                              <button width="fit-content" disabled="" class="sc-bdnxRM eilikZ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 dVGhHi empFNZ" style="display: flex; justify-content: space-between; height: 24px; opacity: 0.8; margin-left: 0.25rem;">
+                                 <div class="theme__TextWrapper-sc-18nh1jk-0 jVfwBw css-bmujy4">Price</div>
+                              </button>
+                           </div>
+                           <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                              <button class="TradePrice__StyledPriceContainer-sc-19ug97y-0 cuSRKa">
+                                 <div style="align-items: center; display: flex; width: fit-content;">
+                                    <div class="css-1ieyfqs"><span id="toestimatebox-usd-2">-</span></div>
+                                 </div>
+                              </button>
+                              <div class="Popover__ReferenceElement-sc-d5tbhs-1 jqqKVf">
+                                 <div style="display: inline-block; line-height: 0; padding: 0.25rem;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="Swap__StyledInfo-sc-1es900k-0 dJQXGW">
+                                       <circle cx="12" cy="12" r="10"></circle>
+                                       <line x1="12" y1="16" x2="12" y2="12"></line>
+                                       <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <button id="buy-tokens" class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonPrimary-sc-fwrjc2-1 fCPJRa hDPIg">
+                              <div class="css-10ob8xa">Buy</div>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="AppBody__BodyWrapper-sc-ebxalf-0 ljBIRR" id="sellDiv">
+                  <div class="SwapHeader__StyledSwapHeader-sc-jhay2b-0 kdgICL">
+                     <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                           <div class="theme__TextWrapper-sc-18nh1jk-0 jVfwBw css-10yinq6" style="margin-right: 8px;">Ethereum Gold</div>
+                        </div>
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                           <div class="Settings__StyledMenu-sc-1ndknrv-4 hsEXYP">
+                              <button id="open-settings-dialog-button" class="Settings__StyledMenuButton-sc-1ndknrv-2 jabAGh" onClick="window.open('./docs/eth');">
+                              <img style="width: 24px;" src="./assets/images/docs.svg">
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="swap-page" class="styleds__Wrapper-sc-11ce2lf-0 dhAVsx">
+                     <div class="Column__AutoColumn-sc-1kykgp9-2 kFRlyy">
+                        <div>
+                           <div id="swap-currency-output" label="[object Object]" class="CurrencyInputPanel__InputPanel-sc-33m4yg-0 bKMknS">
+                              <div class="CurrencyInputPanel__Container-sc-33m4yg-2 llFfOK">
+                                 <div class="CurrencyInputPanel__InputRow-sc-33m4yg-4 jnWuGN">
+                                    <button class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 CurrencyInputPanel__CurrencySelect-sc-33m4yg-3 fCPJRa fbOcdz jTGBXX open-currency-select-button">
+                                       <span class="CurrencyInputPanel__Aligner-sc-33m4yg-7 ggQvrK">
+                                          <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ"><img class="CurrencyLogo__StyledLogo-sc-1fvnadz-1 hDrCZR" alt="DAI logo" src="./assets/images/goldcoin.png" style="margin-right: 0.5rem;"><span class="CurrencyInputPanel__StyledTokenName-sc-33m4yg-9 cjQGda token-symbol-container">IND</span></div>
+                                       </span>
+                                    </button>
+                                    <input class="NumericalInput__StyledInput-sc-1x3stf0-0 cOHNRh token-amount-input" id="sell-tokens-amount" inputmode="decimal" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="Amount of token" minlength="1" spellcheck="false" oninput="sellCal()"> 
+                                 </div>
+                                 <div class="CurrencyInputPanel__LabelRow-sc-33m4yg-5 CurrencyInputPanel__FiatRow-sc-33m4yg-6 hGsXUM kUDmwU">
+                                    <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                                       <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ" style="height: 17px;">
+                                          <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae" style="display: inline; cursor: pointer;">Balance: <span class="poh-balance value">0</span> IND</div>
+                                       </div>
+                                       <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae">~<span id="toestimatebox-usd-sell">0.00 USD</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="styleds__ArrowWrapper-sc-11ce2lf-1 eFFqev">
+                              <img onclick="sellbuyswitch()"  src="./assets/images/switch.svg"/>
+                           </div>
+                           <div id="swap-currency-input" label="[object Object]" class="CurrencyInputPanel__InputPanel-sc-33m4yg-0 bKMknS">
+                              <div class="CurrencyInputPanel__Container-sc-33m4yg-2 llFfOK">
+                                 <div class="CurrencyInputPanel__InputRow-sc-33m4yg-4 jnWuGN">
+                                    <button class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 CurrencyInputPanel__CurrencySelect-sc-33m4yg-3 fCPJRa fbOcdz jTGBXX open-currency-select-button">
+                                       <span class="CurrencyInputPanel__Aligner-sc-33m4yg-7 ggQvrK">
+                                          <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ"><img src="./assets/images/eth.png" class="CurrencyLogo__StyledEthereumLogo-sc-1fvnadz-0 jWnoJP" style="margin-right: 0.5rem;"><span class="CurrencyInputPanel__StyledTokenName-sc-33m4yg-9 cjQGda token-symbol-container">ETH</span></div>
+                                       </span>
+                                    </button>
+                                    <input disabled="disabled" id="toestimatebox2" class="NumericalInput__StyledInput-sc-1x3stf0-0 cOHNRh token-amount-input" type="number"  min="0" step="0.01" inputmode="decimal" autocomplete="off" autocorrect="off" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" id="deposit-hint"> 
+                                 </div>
+                                 <div class="CurrencyInputPanel__LabelRow-sc-33m4yg-5 CurrencyInputPanel__FiatRow-sc-33m4yg-6 hGsXUM kUDmwU">
+                                    <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowBetween-sc-nrd8cx-1 lmTMKd itvFNV jYFNDI">
+                                       <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ" style="height: 17px;">
+                                          <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae" style="display: inline; cursor: pointer;">Balance: <span class="address-balance">0 ETH</span></div>
+                                          <!--<button class="CurrencyInputPanel__StyledBalanceMax-sc-33m4yg-10 bUSiQh">(Max)</button>-->
+                                       </div>
+                                       <div class="theme__TextWrapper-sc-18nh1jk-0 cWOfab css-djrxae">~<span id="toestimatebox-usd-sell-1">0.00 USD</span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="sc-bdnxRM Row-sc-nrd8cx-0 lmTMKd itvFNV" style="justify-content: space-between;">
+                           <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                              <button width="fit-content" disabled="" class="sc-bdnxRM eilikZ Button__Base-sc-fwrjc2-0 Button__ButtonGray-sc-fwrjc2-3 dVGhHi empFNZ" style="display: flex; justify-content: space-between; height: 24px; opacity: 0.8; margin-left: 0.25rem;">
+                                 <div class="theme__TextWrapper-sc-18nh1jk-0 jVfwBw css-bmujy4">Price</div>
+                              </button>
+                           </div>
+                           <div class="sc-bdnxRM Row-sc-nrd8cx-0 Row__RowFixed-sc-nrd8cx-4 lmTMKd itvFNV ieBXyZ">
+                              <button class="TradePrice__StyledPriceContainer-sc-19ug97y-0 cuSRKa">
+                                 <div style="align-items: center; display: flex; width: fit-content;">
+                                    <div class="css-1ieyfqs"><span id="toestimatebox-usd-sell-2">-</span> </div>
+                                 </div>
+                              </button>
+                              <div class="Popover__ReferenceElement-sc-d5tbhs-1 jqqKVf">
+                                 <div style="display: inline-block; line-height: 0; padding: 0.25rem;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="Swap__StyledInfo-sc-1es900k-0 dJQXGW">
+                                       <circle cx="12" cy="12" r="10"></circle>
+                                       <line x1="12" y1="16" x2="12" y2="12"></line>
+                                       <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div>
+                           <button id="sell-tokens-btn" class="sc-bdnxRM hSDgzJ Button__Base-sc-fwrjc2-0 Button__ButtonPrimary-sc-fwrjc2-1 fCPJRa hDPIg">
+                              <div class="css-10ob8xa">Sell</div>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="App__Marginer-sc-1dv6j2d-3 cpSufw"></div>
+            </div>
+         </div>
+      </div>
+      <div id="background-radial-gradient" style="width: 200vw; height: 200vh; transform: translate(-50vw, -100vh);"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/web3d.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/swap.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/karma.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/common.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/web3.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/lightwallet.min.js"></script>
+      <script src="https://yugn27.github.io/metamoney-cdnjs/assets/js/ind.min.js"></script>
+   </body>
+</html>
